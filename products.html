@@ -202,17 +202,57 @@
         </div>
       </section>
 
-      <section class="cta-strip"><div class="container cta-inner"><div><p class="eyebrow">Looking for a particular item?</p><h2>Ask us about current styles and availability.</h2></div><a href="contact.html" class="btn btn-primary">Make an Enquiry</a></div></section>
+      <section class="cta-strip"><div class="container cta-inner"><div><p class="eyebrow">Ready to order?</p><h2>Send us the product ID and we’ll help with your order.</h2></div><a href="https://wa.me/919789707615?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order.%20I%20will%20share%20the%20product%20ID%20with%20you." class="btn btn-primary catalog-order-link" target="_blank" rel="noopener noreferrer">Order on WhatsApp</a></div></section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div><a href="index.html" class="brand footer-brand" aria-label="Thangam Photo Frames and Gifts home"><img class="brand-logo" src="assets/thangam-logo.png" alt="" /></a><p>Photo frames, gifts, and keepsakes for meaningful moments.</p></div>
         <div><h3>Explore</h3><ul><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="products.html">Products</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-        <div><h3>Shop details</h3><ul><li>Phone details to be added</li><li>Email address to be added</li><li>Shop location to be added</li></ul></div>
+        <div><h3>Shop details</h3><ul><li><a href="tel:+919789707615">+91 9789707615</a></li><li><a href="mailto:thangamcreators05@gmail.com">thangamcreators05@gmail.com</a></li><li>Location to be updated later.</li></ul></div>
       </div>
       <div class="container bottom-bar"><p>© <span id="year"></span> Thangam Photo Frames & Gifts. All rights reserved.</p></div>
     </footer>
+    <button class="cart-floating-button" id="cartToggle" type="button" aria-controls="orderCart" aria-expanded="false">Cart <span id="cartCount" class="cart-count">0</span></button>
+    <div class="cart-overlay" id="cartOverlay" hidden>
+      <button class="cart-backdrop" type="button" data-close-cart aria-label="Close order cart"></button>
+      <aside class="cart-drawer" id="orderCart" role="dialog" aria-modal="true" aria-labelledby="cartTitle" tabindex="-1">
+        <div class="cart-header">
+          <div><p class="eyebrow">Your selection</p><h2 id="cartTitle">Order cart</h2></div>
+          <button class="cart-close" type="button" data-close-cart>Close</button>
+        </div>
+        <div class="cart-items" id="cartItems" aria-live="polite"></div>
+        <div class="cart-total"><span>Estimated total</span><strong id="cartTotal">Price on request</strong></div>
+        <form class="order-form" id="orderForm">
+          <fieldset>
+            <legend>Customer details</legend>
+            <label>Customer name<input name="customerName" type="text" autocomplete="name" required /></label>
+            <label>Mobile number<input name="customerMobile" type="tel" autocomplete="tel" minlength="8" maxlength="20" required /></label>
+            <label>Delivery address<textarea name="customerAddress" autocomplete="street-address" rows="2" required></textarea></label>
+          </fieldset>
+          <fieldset>
+            <legend>Booking and delivery</legend>
+            <label>Booking time<input name="bookingTime" type="datetime-local" /></label>
+            <label>Requested delivery time<input name="deliveryTime" type="datetime-local" /></label>
+            <div class="order-choice-group">
+              <span>Delivery method</span>
+              <label><input name="deliveryMethod" type="radio" value="Bus / courier" /> Bus / courier</label>
+              <label><input name="deliveryMethod" type="radio" value="Shop pickup" checked /> Shop pickup</label>
+              <label><input name="deliveryMethod" type="radio" value="Home delivery" /> Home delivery</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Payment</legend>
+            <div class="order-choice-group">
+              <label><input name="paymentMethod" type="radio" value="Cash" checked /> Cash</label>
+              <label><input name="paymentMethod" type="radio" value="UPI / Online Payment" /> UPI / Online Payment</label>
+            </div>
+            <label>Advance paid (₹)<input name="advancePaid" type="number" min="0" step="1" value="0" inputmode="numeric" /></label>
+          </fieldset>
+          <button class="btn btn-primary order-submit" type="submit">Continue to WhatsApp</button>
+        </form>
+      </aside>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

@@ -53,27 +53,43 @@
               Explore the shop’s photo frames, personalized keepsakes, and gift ideas.
               Find something for your home or choose a thoughtful gift for someone special.
             </p>
+
+            <form class="hero-search-form" action="products.html" method="get">
+              <label class="sr-only" for="home-product-search">Search products</label>
+              <input
+                id="home-product-search"
+                type="search"
+                name="search"
+                placeholder="Search products, gifts, frames..."
+                aria-label="Search products"
+              />
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+
             <div class="hero-actions">
               <a href="products.html" class="btn btn-primary">Browse Products</a>
               <a href="services.html" class="btn btn-secondary">Explore Services</a>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="hero-visual" aria-label="Decorative photo frame showcase">
-            <div class="frame-card frame-large">
-              <img
-                src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80"
-                alt="A couple sharing a special moment"
-              />
+      <section class="home-products" id="gift-collection" aria-label="Gift collection">
+        <div class="container">
+          <div class="home-products-heading">
+            <div>
+              <p class="eyebrow">Thangam collection</p>
+              <h2>Gifts for every kind of moment.</h2>
             </div>
-            <div class="frame-card frame-small top">
-              <img
-                src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=700&q=80"
-                alt="Gift hamper and framed keepsake"
-              />
-            </div>
-            <div class="badge">Bespoke gifting</div>
+            <a href="products.html" class="text-link">View full catalogue</a>
           </div>
+
+          <div class="home-products-tabs" role="tablist" aria-label="Gift collection views">
+            <button class="home-products-tab is-active" type="button" role="tab" aria-selected="true" data-view="featured">Featured Gifts</button>
+            <button class="home-products-tab" type="button" role="tab" aria-selected="false" data-view="categories">Categories</button>
+          </div>
+          <div class="home-category-filters" id="homeCategoryFilters" aria-label="Filter by product category" hidden></div>
+          <div class="home-product-grid" id="homeProductsGrid" aria-live="polite" aria-busy="true"></div>
         </div>
       </section>
 
@@ -158,9 +174,9 @@
         <div>
           <h3>Contact</h3>
           <ul>
-            <li>Phone details to be added</li>
-            <li>Email address to be added</li>
-            <li>Shop location to be added</li>
+            <li><a href="tel:+919789707615">+91 9789707615</a></li>
+            <li><a href="mailto:thangamcreators05@gmail.com">thangamcreators05@gmail.com</a></li>
+            <li>Location to be updated later.</li>
           </ul>
         </div>
       </div>
@@ -170,6 +186,46 @@
       </div>
     </footer>
 
+    <button class="cart-floating-button" id="cartToggle" type="button" aria-controls="orderCart" aria-expanded="false">Cart <span id="cartCount" class="cart-count">0</span></button>
+    <div class="cart-overlay" id="cartOverlay" hidden>
+      <button class="cart-backdrop" type="button" data-close-cart aria-label="Close order cart"></button>
+      <aside class="cart-drawer" id="orderCart" role="dialog" aria-modal="true" aria-labelledby="cartTitle" tabindex="-1">
+        <div class="cart-header">
+          <div><p class="eyebrow">Your selection</p><h2 id="cartTitle">Order cart</h2></div>
+          <button class="cart-close" type="button" data-close-cart>Close</button>
+        </div>
+        <div class="cart-items" id="cartItems" aria-live="polite"></div>
+        <div class="cart-total"><span>Estimated total</span><strong id="cartTotal">Price on request</strong></div>
+        <form class="order-form" id="orderForm">
+          <fieldset>
+            <legend>Customer details</legend>
+            <label>Customer name<input name="customerName" type="text" autocomplete="name" required /></label>
+            <label>Mobile number<input name="customerMobile" type="tel" autocomplete="tel" minlength="8" maxlength="20" required /></label>
+            <label>Delivery address<textarea name="customerAddress" autocomplete="street-address" rows="2" required></textarea></label>
+          </fieldset>
+          <fieldset>
+            <legend>Booking and delivery</legend>
+            <label>Booking time<input name="bookingTime" type="datetime-local" /></label>
+            <label>Requested delivery time<input name="deliveryTime" type="datetime-local" /></label>
+            <div class="order-choice-group">
+              <span>Delivery method</span>
+              <label><input name="deliveryMethod" type="radio" value="Bus / courier" /> Bus / courier</label>
+              <label><input name="deliveryMethod" type="radio" value="Shop pickup" checked /> Shop pickup</label>
+              <label><input name="deliveryMethod" type="radio" value="Home delivery" /> Home delivery</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Payment</legend>
+            <div class="order-choice-group">
+              <label><input name="paymentMethod" type="radio" value="Cash" checked /> Cash</label>
+              <label><input name="paymentMethod" type="radio" value="UPI / Online Payment" /> UPI / Online Payment</label>
+            </div>
+            <label>Advance paid (₹)<input name="advancePaid" type="number" min="0" step="1" value="0" inputmode="numeric" /></label>
+          </fieldset>
+          <button class="btn btn-primary order-submit" type="submit">Continue to WhatsApp</button>
+        </form>
+      </aside>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
